@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+
+  frontend:
+    container_name: frontend
+    image: yur0n/tubescope-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - PORT=80
+      - API_URL=http://localhost:8880
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    image: yur0n/tubescope-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8880:8880
+    environment:
+      - NODE_ENV=production
+      - PORT=8880
+      - MONGO_CONNECT=mongodb://pickels:D4zfQQt5Zj7FSWu8@mongo:27017/youtube
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=pickels
+      - MONGO_INITDB_ROOT_PASSWORD=D4zfQQt5Zj7FSWu8
+    volumes:
+      - pgdata:/var/lib/mongo/data
+
+volumes:
+  pgdata: {}
