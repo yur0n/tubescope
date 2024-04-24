@@ -26,22 +26,23 @@ services:
     restart: always
     ports:
       - 8880:8880
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=8880
-      - MONGO_CONNECT=mongodb://pickels:D4zfQQt5Zj7FSWu8@mongo:27017/youtube
-    depends_on:
-      - mongo
+    # depends_on:
+    #   - mongo
 
-  mongo:
-    container_name: mongo
-    image: mongo
-    restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=pickels
-      - MONGO_INITDB_ROOT_PASSWORD=D4zfQQt5Zj7FSWu8
-    volumes:
-      - pgdata:/var/lib/mongo/data
+  # mongo:
+  #   container_name: mongo
+  #   image: mongo
+  #   restart: always
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=pickels
+  #     - MONGO_INITDB_ROOT_PASSWORD=D4zfQQt5Zj7FSWu8
+  #   volumes:
+  #     - pgdata:/var/lib/mongo/data
 
 volumes:
   pgdata: {}
