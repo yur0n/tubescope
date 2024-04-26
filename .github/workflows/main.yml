@@ -22,16 +22,15 @@ jobs:
       - name: Build Docker Images
         run: docker compose build
         shell: bash
-      - name: Compose Up
-        run: docker compose up
-        shell: bash
-      - name: Wait 30 seconds
-        run: |
-          sleep 30
-        shell: bash
-      - name: Stop and Remove Containers
-        run: docker-compose down
-        shell: bash
+      # - name: Compose Up
+      #   run: docker compose up
+      #   shell: bash
+      # - name: Stop and Remove Containers
+      #   run: docker-compose down
+      #   shell: bash
+      - uses: hoverkraft-tech/compose-action@v1.5.1
+        with:
+          compose-file: "compose.yml"
       - name: Push backend
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/tubescope-backend:latest
