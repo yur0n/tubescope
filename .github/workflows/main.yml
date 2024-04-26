@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Add API_KEY from Secrets
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_FILE }}" >> .env
       - uses: isbang/compose-action@v1.5.1
         with:
           compose-file: "./compose.yml"
