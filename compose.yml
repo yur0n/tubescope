@@ -11,9 +11,8 @@ services:
     restart: always
     ports:
       - 80:80
-    environment:
-      - PORT=80
-      - API_URL=http://localhost:8880
+    env_file:
+      - .env
     depends_on:
       - backend
 
@@ -34,6 +33,7 @@ services:
     # depends_on:
     #   - mongo
 
+# CHANGE TO SUPABASE local
   # mongo:
   #   container_name: mongo
   #   image: mongo
