@@ -1,5 +1,4 @@
 
-
 export default {
 	// ra: {
 	// 		action: {
@@ -9,15 +8,15 @@ export default {
 	'ra-supabase': {
 			auth: {
 					email: 'Email',
-					confirm_password: 'Confirm password',
-					sign_in_with: 'Sign in with %{provider}',
-					forgot_password: 'Forgot password?',
-					reset_password: 'Reset password',
+					confirm_password: 'Confirmation du mot de passe',
+					sign_in_with: 'Se connecter avec %{provider}',
+					forgot_password: 'Mot de passe oublié ?',
+					reset_password: 'Réinitialiser le mot de passe',
 					password_reset:
-							'Your password has been reset. You will receive an email containing a link to log in.',
+							'Votre mot de passe a été réinitialisé. Vous recevrez un email contenant un lien pour vous connecter.',
 			},
 			validation: {
-					password_mismatch: 'Passwords do not match',
+					password_mismatch: 'Les mots de passe ne correspondent pas',
 			},
 	},
 	resources: {

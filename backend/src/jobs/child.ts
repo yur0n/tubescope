@@ -20,7 +20,7 @@ new CronJob(
 async function job1() {
 	console.log('Running a job');
 
-	const child = spawn('node', ['./build/src/jobs/youtubeJob1.js']);
+	const child = spawn('node', ['./dist/src/jobs/youtubeJob1.js']);
 
 	child.stdout.on('data', (data: string) => {
 			console.log(`stdout: ${data}`);
@@ -39,7 +39,7 @@ async function job1() {
 async function job2() {
 	console.log('Running a job');
 
-	const child = spawn('node', ['./build/src/jobs/youtubeJob2.js']);
+	const child = spawn('node', ['./dist/src/jobs/youtubeJob2.js']);
 
 	child.stdout.on('data', (data: string) => {
 			console.log(`stdout: ${data}`);
